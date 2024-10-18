@@ -1,0 +1,25 @@
+#
+FROM ubuntu:20.04
+
+
+RUN apt-get update && \
+    apt-get install -y webp bash
+
+
+WORKDIR /usr/src/app
+
+
+COPY convert_to_webp.sh .
+
+
+RUN chmod +x convert_to_webp.sh
+
+
+RUN mkdir -p /usr/src/app/images
+
+
+
+
+CMD ["./convert_to_webp.sh"]
+
+
